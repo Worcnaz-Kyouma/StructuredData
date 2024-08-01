@@ -1,24 +1,21 @@
 #ifndef SD_STACK_H
 #define SD_STACK_H
 
-#include "collection.hpp"
+#include "list.hpp"
 
 template <typename T>
-class Stack : public Collection {
+class Stack : public List<T> {
 private:
-    T* elements;
-    int size = 0;
-    
     T* topElement;
 public:
+    Stack(int size);
     Stack(T* elements, int numberOfElements, int size);
 
-    T* get() override;
-    void push(T* element) override;
+    const T& get() override;
     void push(T element) override;
     void pop() override;
-    char* list() override;
 
+    char* list() override;
     int getCount() override;
 };
 
